@@ -28,8 +28,8 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 ## Build
 - [x] DONE: Shared template (header, nav, footer, watermark); Jinja2 generator at `build/build.py`, output is static HTML
 - [x] DONE: Home, Mission, Vision, Core Values (axe-core clean desktop and mobile; noindex while on preview URL)
-- [ ] About plus Our Goals
-- [ ] Board index plus 10 bios (template generated)
+- [x] DONE: About plus Our Goals
+- [x] DONE: Board index plus 10 bios from `build/data/board.json` (Rodney Boucher shows crest placeholder and "coming soon" until photo and bio arrive)
 - [ ] Regional index plus 10 bios (template generated)
 - [ ] News index plus 6 articles
 - [ ] Donate (Zeffy)

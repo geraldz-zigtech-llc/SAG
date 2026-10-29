@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block main %}
+<article class="bio" aria-labelledby="page-title">
+  <div class="bio-media">
+    {% if m.photo %}<img src="{{ root }}{{ m.photo }}" alt="Portrait of {{ m.full_name }}" width="1023" height="1537">
+    {% else %}<div class="person-placeholder bio-placeholder"><img src="{{ root }}assets/img/brand/sag-crest.png" alt="" width="200" height="228"><span>Photo coming soon</span></div>{% endif %}
+  </div>
+  <div class="bio-text watermark">
+    <header class="bio-header">
+      <p class="bio-role">{{ m.role }}</p>
+      <h1 id="page-title">{{ m.full_name }}</h1>
+    </header>
+    {% if m.bio %}
+    {% for p in m.bio %}<p>{{ p }}</p>
+    {% endfor %}
+    {% else %}
+    <p>A biography for {{ m.name }} is coming soon.</p>
+    {% endif %}
+    <p class="cta-row"><a class="btn btn-solid" href="index.html">{{ back_label }}</a></p>
+  </div>
+</article>
+{% endblock %}

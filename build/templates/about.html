@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="section watermark" aria-labelledby="page-title">
+  <div class="section-inner narrow">
+    <h1 id="page-title" class="pill-title pill-light">About the Submariners’ Advocacy Group</h1>
+    {% for p in about %}<p{% if loop.first %} class="lead"{% endif %}>{{ p }}</p>
+    {% endfor %}
+  </div>
+</section>
+<section class="section section-alt" aria-labelledby="goals-title">
+  <div class="section-inner">
+    <h2 id="goals-title" class="section-heading">Our Goals</h2>
+    <p class="lead">{{ goals_intro }}</p>
+    <div class="goal-grid">
+      {% for g in goals %}
+      <article class="goal">
+        <h3>{{ g.title }}</h3>
+        <p>{{ g.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="cta-row">
+      <a class="btn btn-solid" href="{{ root }}board/index.html">Board of Directors</a>
+      <a class="btn btn-solid" href="{{ root }}regional/index.html">Regional Representatives</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

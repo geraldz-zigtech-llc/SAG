@@ -118,10 +118,24 @@ HOME_CARDS = [
 ]
 
 
-def breadcrumb(name, path):
+def breadcrumb(*trail):
+    """trail: (name, path) pairs after Home, e.g. ("About", "/about.html")."""
+    items = [("Home", "/")] + list(trail)
     return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE["url"] + "/"},
-        {"@type": "ListItem", "position": 2, "name": name, "item": SITE["url"] + path}]}
+        {"@type": "ListItem", "position": i, "name": n, "item": SITE["url"] + p}
+        for i, (n, p) in enumerate(items, 1)]}
+
+
+def load(name):
+    import json
+    return json.loads((ROOT / "build" / "data" / name).read_text(encoding="utf-8"))
+
+
+def short(text, limit=155):
+    """Trim text to a meta description length on a word boundary."""
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0].rstrip(",;:") + "..."
 
 
 def render(template, out, page, root="", **ctx):
@@ -143,8 +157,44 @@ def main():
             "title": f"{s['heading']} | Submariners’ Advocacy Group",
             "description": s["description"], "path": f"/{slug}.html", "nav": "home",
             "body_class": "page-statement", "og_image": s["image"],
-            "schema": [breadcrumb(s["heading"], f"/{slug}.html")],
+            "schema": [breadcrumb((s["heading"], f"/{slug}.html"))],
         }, s=s)
+
+    about = load("about.json")
+    render("about.html", "about.html", {
+        "title": "About | Submariners’ Advocacy Group",
+        "description": short("SAG is a nonprofit founded by U.S. Navy Submariners. Earning your Dolphins is "
+                             "membership enough: no applications, dues, or eligibility requirements."),
+        "path": "/about.html", "nav": "about", "body_class": "page-about",
+        "schema": [breadcrumb(("About", "/about.html"))],
+    }, **about)
+
+    board = load("board.json")
+    (ROOT / "board").mkdir(exist_ok=True)
+    render("people_index.html", "board/index.html", {
+        "title": "Board of Directors | Submariners’ Advocacy Group",
+        "description": ("Meet the Board of Directors of the Submariners’ Advocacy Group, qualified U.S. Navy "
+                        "Submariners leading SAG's advocacy for the submarine community."),
+        "path": "/board/", "nav": "about", "body_class": "page-people",
+        "schema": [breadcrumb(("About", "/about.html"), ("Board of Directors", "/board/"))],
+    }, root="../", heading="Board of Directors", people=board,
+       intro=("Every member of SAG's leadership has completed the U.S. Navy's submarine qualification "
+              "process and earned the Dolphins."))
+    for m in board:
+        path = f"/board/{m['slug']}.html"
+        person = {"@context": "https://schema.org", "@type": "Person", "name": m["full_name"].replace("“", '"').replace("”", '"'),
+                  "jobTitle": m["role"], "url": SITE["url"] + path,
+                  "memberOf": {"@id": SITE["url"] + "/#organization"}}
+        if m["photo"]:
+            person["image"] = SITE["url"] + "/" + m["photo"]
+        desc = short(m["bio"][0]) if m["bio"] else f"{m['name']}, {m['role']}, Submariners’ Advocacy Group."
+        render("person.html", f"board/{m['slug']}.html", {
+            "title": f"{m['name']} | Submariners’ Advocacy Group",
+            "description": desc, "path": path, "nav": "about", "body_class": "page-bio",
+            "og_image": m["photo"],
+            "schema": [person, breadcrumb(("About", "/about.html"), ("Board of Directors", "/board/"),
+                                          (m["name"], path))],
+        }, root="../", m=m, back_label="Board of Directors Home")
 
 
 if __name__ == "__main__":
