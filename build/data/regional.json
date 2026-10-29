@@ -1,0 +1,102 @@
+[
+ {
+  "slug": "edward-perry",
+  "region": "New England",
+  "role": "New England",
+  "bio_role": "Regional Representative, New England",
+  "name": "Edward Perry",
+  "full_name": "Edward Perry",
+  "photo": null,
+  "bio": []
+ },
+ {
+  "slug": "john-lofstock",
+  "region": "Mid-Atlantic / Capital",
+  "role": "Mid-Atlantic / Capital",
+  "bio_role": "Regional Representative, Mid-Atlantic / Capital",
+  "name": "John Lofstock",
+  "full_name": "John Lofstock",
+  "photo": "assets/img/regional/john-lofstock.jpg",
+  "bio": []
+ },
+ {
+  "slug": "robert-mayfield",
+  "region": "Southeast Atlantic 1",
+  "role": "Southeast Atlantic 1",
+  "bio_role": "Regional Representative, Southeast Atlantic 1",
+  "name": "Robert Mayfield",
+  "full_name": "Robert Mayfield",
+  "photo": "assets/img/regional/robert-mayfield.jpg",
+  "bio": []
+ },
+ {
+  "slug": "scott-brown",
+  "region": "Southeast Atlantic 2",
+  "role": "Southeast Atlantic 2",
+  "bio_role": "Regional Representative, Southeast Atlantic 2",
+  "name": "Scott Brown",
+  "full_name": "Scott Brown",
+  "photo": "assets/img/regional/scott-brown.jpg",
+  "bio": []
+ },
+ {
+  "slug": "leland-marcus",
+  "region": "Gulf Coast",
+  "role": "Gulf Coast",
+  "bio_role": "Regional Representative, Gulf Coast",
+  "name": "Leland Marcus",
+  "full_name": "Leland Marcus",
+  "photo": "assets/img/regional/leland-marcus.jpg",
+  "bio": []
+ },
+ {
+  "slug": "kevin-kettner",
+  "region": "Central Plains",
+  "role": "Central Plains",
+  "bio_role": "Regional Representative, Central Plains",
+  "name": "Kevin Kettner",
+  "full_name": "Kevin Kettner",
+  "photo": "assets/img/regional/kevin-kettner.jpg",
+  "bio": []
+ },
+ {
+  "slug": "monte-bush",
+  "region": "Mountain / Inland West",
+  "role": "Mountain / Inland West",
+  "bio_role": "Regional Representative, Mountain / Inland West",
+  "name": "Monte Bush",
+  "full_name": "Monte Bush",
+  "photo": "assets/img/regional/monte-bush.jpg",
+  "bio": []
+ },
+ {
+  "slug": "oscar-sanchez-huerta",
+  "region": "California / Pacific",
+  "role": "California / Pacific",
+  "bio_role": "Regional Representative, California / Pacific",
+  "name": "Oscar Sanchez-Huerta",
+  "full_name": "Oscar Sanchez-Huerta",
+  "photo": "assets/img/regional/oscar-sanchez-huerta.jpg",
+  "bio": []
+ },
+ {
+  "slug": "bill-longworth",
+  "region": "Pacific Northwest 1",
+  "role": "Pacific Northwest 1",
+  "bio_role": "Regional Representative, Pacific Northwest 1",
+  "name": "Bill Longworth",
+  "full_name": "Bill Longworth",
+  "photo": "assets/img/regional/bill-longworth.jpg",
+  "bio": []
+ },
+ {
+  "slug": "doug-hase",
+  "region": "Pacific Northwest 2",
+  "role": "Pacific Northwest 2",
+  "bio_role": "Regional Representative, Pacific Northwest 2",
+  "name": "Doug Hase",
+  "full_name": "Doug Hase",
+  "photo": "assets/img/regional/doug-hase.jpg",
+  "bio": []
+ }
+]

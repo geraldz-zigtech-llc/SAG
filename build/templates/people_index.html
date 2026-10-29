@@ -10,7 +10,7 @@
         <a class="person-card" href="{{ m.slug }}.html">
           {% if m.photo %}<img src="{{ root }}{{ m.photo }}" alt="" width="300" height="450" loading="lazy">
           {% else %}<span class="person-placeholder" aria-hidden="true"><img src="{{ root }}assets/img/brand/sag-crest.png" alt="" width="120" height="137"></span>{% endif %}
-          <span class="person-label"><span class="person-role">{{ m.role }}</span><span class="person-name">{{ m.name }}</span></span>
+          <span class="person-label"><span class="person-role">{{ m.role }}</span><span class="person-name">{% for w in m.name.split(" ") %}<span class="nw">{{ w }}</span>{% if not loop.last %} {% endif %}{% endfor %}</span></span>
         </a>
       </li>
       {% endfor %}

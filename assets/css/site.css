@@ -154,3 +154,4 @@ a:hover { color: var(--blue-dark); }
   .bio-placeholder { min-height: 280px; }
 }
 @media (prefers-reduced-motion: reduce) { .person-card { transition: none; } }
+.nw { white-space: nowrap; }

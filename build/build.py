@@ -196,6 +196,33 @@ def main():
                                           (m["name"], path))],
         }, root="../", m=m, back_label="Board of Directors Home")
 
+    regional = load("regional.json")
+    (ROOT / "regional").mkdir(exist_ok=True)
+    render("people_index.html", "regional/index.html", {
+        "title": "Regional Representatives | Submariners’ Advocacy Group",
+        "description": ("Meet the Regional Representatives of the Submariners’ Advocacy Group, serving "
+                        "Submariners from New England to the Pacific Northwest."),
+        "path": "/regional/", "nav": "about", "body_class": "page-people",
+        "schema": [breadcrumb(("About", "/about.html"), ("Regional Representatives", "/regional/"))],
+    }, root="../", heading="Regional Representatives", people=regional,
+       intro="Meet SAG's Regional Representatives, listed by region.")
+    for m in regional:
+        path = f"/regional/{m['slug']}.html"
+        person = {"@context": "https://schema.org", "@type": "Person", "name": m["full_name"],
+                  "jobTitle": m["bio_role"], "url": SITE["url"] + path,
+                  "memberOf": {"@id": SITE["url"] + "/#organization"}}
+        if m["photo"]:
+            person["image"] = SITE["url"] + "/" + m["photo"]
+        desc = short(m["bio"][0]) if m["bio"] else (
+            f"{m['name']} is the Submariners’ Advocacy Group Regional Representative for the {m['region']} region.")
+        render("person.html", f"regional/{m['slug']}.html", {
+            "title": f"{m['name']} | Submariners’ Advocacy Group",
+            "description": desc, "path": path, "nav": "about", "body_class": "page-bio",
+            "og_image": m["photo"],
+            "schema": [person, breadcrumb(("About", "/about.html"), ("Regional Representatives", "/regional/"),
+                                          (m["name"], path))],
+        }, root="../", m=m, back_label="Regional Representatives Home")
+
 
 if __name__ == "__main__":
     main()
