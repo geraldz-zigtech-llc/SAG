@@ -50,8 +50,9 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [ ] Watermark contrast verified on every page type
 
 ## Handoff
-- [ ] `README.md`
-- [ ] `ai-editing-guide.md`
+- [x] DONE: `README.md` (structure, build process, common edits, do-not-touch list, launch steps)
+- [x] DONE: `ai-editing-guide.md` (AI rules, task cookbook with exact file and key names, repeated-facts map, stop list)
+- [x] DONE: `.nojekyll` added so GitHub Pages serves files as is
 - [ ] FormSubmit activation completed by SAG
 - [ ] DNS cutover, CNAME, Enforce HTTPS, GitHub verified domain
 - [ ] DNS and email security baseline (SPF, DKIM, DMARC, TLS-RPT, MTA-STS, CAA, DNSSEC)
