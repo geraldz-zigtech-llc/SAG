@@ -26,8 +26,8 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [ ] Content corrections in `docs/site-plan.md` section 6 approved
 
 ## Build
-- [ ] Shared template (header, nav, footer, watermark)
-- [ ] Home, Mission, Vision, Core Values
+- [x] DONE: Shared template (header, nav, footer, watermark); Jinja2 generator at `build/build.py`, output is static HTML
+- [x] DONE: Home, Mission, Vision, Core Values (axe-core clean desktop and mobile; noindex while on preview URL)
 - [ ] About plus Our Goals
 - [ ] Board index plus 10 bios (template generated)
 - [ ] Regional index plus 10 bios (template generated)
@@ -36,7 +36,7 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [ ] Contact (FormSubmit: honeypot, `_autoresponse`, absolute `_next`)
 - [ ] `thank-you.html` (noindex, sitemap excluded, robots Disallow)
 - [ ] `404.html`
-- [ ] Favicon from crest
+- [x] DONE: Favicon and apple-touch-icon from crest (alpha bounding box crop)
 
 ## SEO / GEO
 - [ ] Canonical, OG/Twitter, viewport, titles under 60 characters

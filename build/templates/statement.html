@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="split" aria-labelledby="page-title">
+  <div class="split-text">
+    <h1 id="page-title" class="pill-title">{{ s.heading }}</h1>
+    <p class="statement-lead">{{ s.lead }}</p>
+    <h2 class="split-subhead">{{ s.list_intro }}</h2>
+    <ul class="statement-list">
+      {% for item in s['items'] %}<li>{% if item.label %}<strong>{{ item.label }}</strong> {% endif %}{{ item.text }}</li>
+      {% endfor %}</ul>
+    <p class="split-actions">
+      {% for o in s.others %}<a class="btn btn-outline" href="{{ root }}{{ o.href }}">{{ o.label }}</a>
+      {% endfor %}<a class="btn btn-outline" href="{{ root }}index.html">Home</a>
+    </p>
+  </div>
+  <div class="split-media">
+    <img src="{{ root }}{{ s.image }}" alt="{{ s.alt }}" width="{{ s.w }}" height="{{ s.h }}">
+  </div>
+</section>
+{% endblock %}

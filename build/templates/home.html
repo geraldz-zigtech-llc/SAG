@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero-bg" src="{{ root }}assets/img/hero/home-hero.jpg" alt="" width="1536" height="862" fetchpriority="high">
+  <div class="hero-inner">
+    <img class="hero-crest" src="{{ root }}assets/img/brand/sag-crest.png" alt="Submariners’ Advocacy Group crest" width="200" height="228">
+    <div class="hero-text">
+      <h1 id="hero-title">Submariners’ Advocacy Group</h1>
+      <p class="hero-tagline">Submariners Helping Submariners</p>
+    </div>
+  </div>
+  <ul class="hero-links">
+    <li><a class="btn btn-outline" href="{{ root }}mission.html">Mission</a></li>
+    <li><a class="btn btn-outline" href="{{ root }}vision.html">Vision</a></li>
+    <li><a class="btn btn-outline" href="{{ root }}core-values.html">Core Values</a></li>
+  </ul>
+</section>
+
+<section class="section watermark" aria-labelledby="intro-title">
+  <div class="section-inner">
+    <h2 id="intro-title" class="section-heading">Who We Are</h2>
+    <p class="lead">The Submariners’ Advocacy Group (SAG) is a nonprofit organization founded by U.S. Navy Submariners to serve, support, and advocate for every individual who has earned the Submarine Warfare Insignia, known throughout the Fleet as the Dolphins.</p>
+    <p>If you have qualified in submarines, you are already part of the community we represent. There are no applications, dues, or eligibility requirements beyond earning your Dolphins.</p>
+    <div class="card-row">
+      {% for c in cards %}
+      <a class="card" href="{{ root }}{{ c.href }}">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+        <span class="card-cta" aria-hidden="true">Read more</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

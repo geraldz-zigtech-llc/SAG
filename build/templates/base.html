@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% if site.preview %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.path }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.path }}">
+<meta property="og:image" content="{{ site.url }}/{{ page.og_image or 'assets/img/hero/home-hero.jpg' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+<meta name="twitter:image" content="{{ site.url }}/{{ page.og_image or 'assets/img/hero/home-hero.jpg' }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ root }}assets/img/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="{{ root }}assets/img/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="{{ root }}assets/css/site.css">
+<!-- Google Analytics 4: replace G-XXXXXXXXXX with SAG's Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+{% for block in page.schema %}<script type="application/ld+json">
+{{ block | tojson(indent=2) }}
+</script>
+{% endfor %}</head>
+<body class="{{ page.body_class }}">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main">
+    <a class="nav-brand" href="{{ root }}index.html">
+      <img src="{{ root }}assets/img/brand/sag-crest.png" alt="" width="40" height="46">
+      <span>Submariners’ Advocacy Group</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      {% for item in site.nav %}<li><a href="{{ root }}{{ item.href }}"{% if item.key == page.nav %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+      {% endfor %}</ul>
+  </nav>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h2 class="footer-heading">Contact</h2>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+    <nav class="footer-col" aria-label="Footer">
+      <h2 class="footer-heading">Navigation</h2>
+      <ul>
+        {% for item in site.nav %}<li><a href="{{ root }}{{ item.href }}">{{ item.label }}</a></li>
+        {% endfor %}</ul>
+    </nav>
+    <div class="footer-col">
+      <h2 class="footer-heading">About</h2>
+      <p>Members of the Silent Service have been faithful to their oaths and training and have been silent for far too long. SAG will advocate for all Submariners.</p>
+    </div>
+  </div>
+  <p class="copyright">Copyright Submariners’ Advocacy Group © <span data-year>{{ site.year }}</span></p>
+</footer>
+<script src="{{ root }}assets/js/site.js" defer></script>
+</body>
+</html>
