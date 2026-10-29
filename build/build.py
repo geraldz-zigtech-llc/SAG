@@ -19,6 +19,7 @@ SITE = {
     "url": "https://subadvocates.org",
     "email": "public-affairs@subadvocates.org",
     "preview": True,  # adds noindex while the site lives on the github.io test URL; set False at launch
+    "preview_url": "https://geraldz-zigtech-llc.github.io/SAG",
     "year": datetime.date.today().year,
     "nav": [
         {"key": "home", "label": "Home", "href": "index.html"},
@@ -247,6 +248,101 @@ def main():
             "og_image": a.get("image"),
             "schema": [article, breadcrumb(("News and Articles", "/news/"), (a["title"], path))],
         }, root="../", a=a, docs=news["docs"], contact=news["contact"], video_url=news["video_url"])
+
+    # Donate
+    render("donate.html", "donate.html", {
+        "title": "Donate | Submariners’ Advocacy Group",
+        "description": ("Support the Submariners’ Advocacy Group. Donations help SAG bring the needs of U.S. "
+                        "Navy Submariners to key organizations and members of Congress."),
+        "path": "/donate.html", "nav": "donate", "body_class": "page-donate",
+        "schema": [breadcrumb(("Donate", "/donate.html"))],
+    }, d=load("donate.json"))
+
+    # Contact (FormSubmit). Recipient stays None until SAG confirms it; the form renders disabled until then.
+    live_base = SITE["preview_url"] if SITE["preview"] else SITE["url"]
+    render("contact.html", "contact.html", {
+        "title": "Contact | Submariners’ Advocacy Group",
+        "description": "Contact the Submariners’ Advocacy Group with questions, stories, or ways you would like to help.",
+        "path": "/contact.html", "nav": "contact", "body_class": "page-contact",
+        "schema": [breadcrumb(("Contact", "/contact.html"))],
+    }, form={"recipient": None, "next_url": live_base + "/thank-you.html"})
+
+    render("simple.html", "thank-you.html", {
+        "title": "Thank You | Submariners’ Advocacy Group",
+        "description": "Thank you for contacting the Submariners’ Advocacy Group.",
+        "path": "/thank-you.html", "nav": "contact", "body_class": "page-simple", "noindex": True, "schema": [],
+    }, s={"heading": "Thank You", "paras": ["Thanks for reaching out. We received your message and a member of the SAG team will be in touch soon."],
+          "buttons": [{"label": "Back to Home", "href": "index.html"}]})
+
+    render("simple.html", "store.html", {
+        "title": "SAG Online Store | Submariners’ Advocacy Group",
+        "description": "The Submariners’ Advocacy Group online store is coming soon.",
+        "path": "/store.html", "nav": "store", "body_class": "page-simple", "noindex": True, "schema": [],
+    }, s={"heading": "SAG Online Store", "paras": ["Our online store is coming soon. Check back for SAG apparel and merchandise."],
+          "buttons": [{"label": "Back to Home", "href": "index.html"}, {"label": "Donate", "href": "donate.html"}]})
+
+    # 404: served at any missing URL depth, so links use the site's absolute base path.
+    base = "/SAG/" if SITE["preview"] else "/"
+    render("simple.html", "404.html", {
+        "title": "Page Not Found | Submariners’ Advocacy Group",
+        "description": "The page you were looking for could not be found.",
+        "path": "/404.html", "nav": "", "body_class": "page-simple", "noindex": True, "schema": [],
+    }, root=base, s={"heading": "Page Not Found", "paras": ["We could not find that page. It may have moved, or the address may be mistyped."],
+                     "buttons": [{"label": "Back to Home", "href": "index.html"}, {"label": "News and Articles", "href": "news/index.html"}]})
+
+    write_crawler_files(board, regional, news)
+
+
+def write_crawler_files(board, regional, news):
+    u = SITE["url"]
+    pages = (["/", "/mission.html", "/vision.html", "/core-values.html", "/about.html", "/board/", "/regional/",
+              "/news/", "/donate.html", "/contact.html"]
+             + [f"/board/{m['slug']}.html" for m in board]
+             + [f"/regional/{m['slug']}.html" for m in regional]
+             + [f"/news/{a['slug']}.html" for a in news["articles"]])
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sm += [f"  <url><loc>{u}{p}</loc></url>" for p in pages] + ["</urlset>", ""]
+    (ROOT / "sitemap.xml").write_text("\n".join(sm), encoding="utf-8")
+
+    bots = ["OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "ClaudeBot", "Google-Extended",
+            "Applebot-Extended", "Amazonbot"]
+    rb = ["User-agent: *", "Allow: /", "Disallow: /thank-you.html", "Disallow: /store.html",
+          "Disallow: /build/", "Disallow: /content/", "Disallow: /docs/", ""]
+    for b in bots:
+        rb += [f"User-agent: {b}", "Allow: /", "Disallow: /thank-you.html", ""]
+    rb += [f"Sitemap: {u}/sitemap.xml", ""]
+    (ROOT / "robots.txt").write_text("\n".join(rb), encoding="utf-8")
+
+    ll = ["# Submariners' Advocacy Group (SAG)", "",
+          "> Nonprofit organization founded by U.S. Navy Submariners in April 2024 to advocate for the health, "
+          "recognition, and care of all U.S. Navy Submariners through scientific research, public education, and "
+          "legislative advocacy. Tagline: Submariners Helping Submariners.", "",
+          "## Who SAG serves",
+          "- Every person who qualified in U.S. Navy submarines and earned the Dolphins: veterans, active duty, "
+          "retirees, and their families and survivors",
+          "- There are no applications, dues, or eligibility requirements beyond having qualified in submarines", "",
+          "## What SAG does",
+          "- Advocates for legislation and policy that improve healthcare, benefits, and recognition for Submariners",
+          "- Supports research into submarine atmospheric contaminants and other occupational exposures, "
+          "including a nationwide Submariner registry",
+          "- Educates veterans, families, healthcare providers, Veteran Service Officers, and policymakers",
+          "- Publishes The Unseen Burden: Toxic Exposures and Health Impacts on U.S. Navy Submariners, "
+          "with Amendment 1 (Physiological Effects) and Amendment 2 (Compounded Stressors)", "",
+          "## Key pages",
+          f"- [About SAG]({u}/about.html)",
+          f"- [Mission]({u}/mission.html)",
+          f"- [Board of Directors]({u}/board/)",
+          f"- [Regional Representatives]({u}/regional/)",
+          f"- [News and Articles]({u}/news/)",
+          f"- [The Unseen Burden report]({u}/news/the-unseen-burden.html)",
+          f"- [Submarine Toxic, Hazardous, and Radiation Exposures]({u}/news/submarine-toxic-hazardous-radiation-exposures.html)",
+          f"- [Donate]({u}/donate.html)",
+          f"- [Contact]({u}/contact.html)", "",
+          "## Contact",
+          f"- Email: {SITE['email']}",
+          "- Executive Director: David L. Bozarth", ""]
+    (ROOT / "llms.txt").write_text("\n".join(ll), encoding="utf-8")
+    print("wrote sitemap.xml, robots.txt, llms.txt")
 
 
 if __name__ == "__main__":

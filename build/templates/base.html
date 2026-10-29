@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.description }}">
-{% if site.preview %}<meta name="robots" content="noindex, nofollow">{% endif %}
+{% if site.preview or page.noindex %}<meta name="robots" content="noindex{% if site.preview %}, nofollow{% endif %}">{% endif %}
 <link rel="canonical" href="{{ site.url }}{{ page.path }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.name }}">

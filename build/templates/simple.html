@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="section watermark simple-page" aria-labelledby="page-title">
+  <div class="section-inner narrow">
+    <img class="simple-crest" src="{{ root }}assets/img/brand/sag-crest.png" alt="" width="140" height="160">
+    <h1 id="page-title" class="pill-title pill-light">{{ s.heading }}</h1>
+    {% for p in s.paras %}<p class="lead">{{ p | safe }}</p>{% endfor %}
+    <p class="cta-row">{% for b in s.buttons %}<a class="btn btn-solid" href="{{ root }}{{ b.href }}">{{ b.label }}</a>{% endfor %}</p>
+  </div>
+</section>
+{% endblock %}

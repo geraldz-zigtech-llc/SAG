@@ -207,3 +207,30 @@ a.doc-btn:hover { background: var(--blue-dark); color: var(--white); }
 .contact-box a { color: #C9C6FF; }
 .contact-box ul { list-style: none; padding: 0; margin: .5rem 0 0; }
 @media (prefers-reduced-motion: reduce) { .article-card { transition: none; } }
+
+/* Donate, Contact, simple pages */
+.sub-heading { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 .6rem; }
+.label-list li { margin-bottom: .5rem; }
+.label-list ul { margin-top: .5rem; }
+.thanks-line { text-align: center; font-weight: 800; color: var(--navy); font-size: 1.25rem; margin-top: 2.5rem; }
+.zeffy-wrap { position: relative; width: 100%; height: 900px; border-radius: var(--radius); overflow: hidden; background: var(--white); }
+.zeffy-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.embed-pending { display: flex; align-items: center; gap: 1.25rem; background: linear-gradient(160deg, var(--navy), var(--blue)); color: var(--white); border-radius: var(--radius); padding: 1.5rem; }
+.embed-pending p { margin: 0; font-weight: 700; font-size: 1.1rem; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-pending { background: var(--white); border-left: 6px solid var(--gold); border-radius: var(--radius); padding: 1rem 1.25rem; font-weight: 600; }
+.contact-form { background: var(--white); border: 2px solid var(--blue); border-radius: var(--radius); padding: 1.5rem; margin-top: 1.5rem; }
+.contact-form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.contact-form fieldset[disabled] { opacity: .6; }
+.field { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1.1rem; }
+.field label { font-weight: 700; color: var(--navy); }
+.optional { font-weight: 400; color: #4A4A55; }
+.field input, .field textarea { font: inherit; padding: .7rem .8rem; border: 2px solid #6B6B80; border-radius: 8px; background: var(--white); color: var(--ink); }
+.field input:focus-visible, .field textarea:focus-visible { border-color: var(--blue); }
+.contact-form .btn { font: inherit; font-weight: 700; cursor: pointer; }
+.contact-form fieldset[disabled] .btn { cursor: not-allowed; }
+.simple-page .section-inner { text-align: center; }
+.simple-crest { margin: 0 auto 1.25rem; width: 140px; }
+.simple-page .cta-row { justify-content: center; }
+.simple-page .lead { margin-left: auto; margin-right: auto; }
