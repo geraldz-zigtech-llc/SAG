@@ -223,6 +223,31 @@ def main():
                                           (m["name"], path))],
         }, root="../", m=m, back_label="Regional Representatives Home")
 
+    news = load("news.json")
+    (ROOT / "news").mkdir(exist_ok=True)
+    render("news_index.html", "news/index.html", {
+        "title": "News and Articles | Submariners’ Advocacy Group",
+        "description": ("News, articles, and reports from the Submariners’ Advocacy Group, including The "
+                        "Unseen Burden report on toxic exposures aboard U.S. Navy submarines."),
+        "path": "/news/", "nav": "news", "body_class": "page-news",
+        "schema": [breadcrumb(("News and Articles", "/news/"))],
+    }, root="../", articles=news["articles"])
+    for a in news["articles"]:
+        path = f"/news/{a['slug']}.html"
+        article = {"@context": "https://schema.org", "@type": "Article", "headline": a["title"],
+                   "description": a["summary"], "url": SITE["url"] + path,
+                   "mainEntityOfPage": SITE["url"] + path,
+                   "author": {"@id": SITE["url"] + "/#organization"},
+                   "publisher": {"@id": SITE["url"] + "/#organization"}}
+        if a.get("image"):
+            article["image"] = SITE["url"] + "/" + a["image"]
+        render("article.html", f"news/{a['slug']}.html", {
+            "title": f"{a.get('short_title', a['title'])} | SAG",
+            "description": short(a["summary"]), "path": path, "nav": "news", "body_class": "page-article",
+            "og_image": a.get("image"),
+            "schema": [article, breadcrumb(("News and Articles", "/news/"), (a["title"], path))],
+        }, root="../", a=a, docs=news["docs"], contact=news["contact"], video_url=news["video_url"])
+
 
 if __name__ == "__main__":
     main()

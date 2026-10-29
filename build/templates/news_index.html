@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+{% include "_dolphins_banner.html" %}
+<section class="section watermark" aria-labelledby="page-title">
+  <div class="section-inner">
+    <h1 id="page-title" class="pill-title pill-light">News and Articles</h1>
+    <ul class="article-grid">
+      {% for a in articles %}
+      <li>
+        <a class="article-card" href="{{ a.slug }}.html">
+          {% if a.image %}<img src="{{ root }}{{ a.image }}" alt="" width="{{ a.w }}" height="{{ a.h }}" loading="lazy">
+          {% else %}<span class="article-thumb-fallback" aria-hidden="true"><img src="{{ root }}assets/img/brand/dolphins.png" alt="" width="362" height="113"></span>{% endif %}
+          <span class="article-card-body">
+            <span class="article-card-title">{{ a.title }}</span>
+            <span class="article-card-summary">{{ a.summary }}</span>
+            <span class="card-cta" aria-hidden="true">Read article</span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

@@ -31,7 +31,7 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [x] DONE: About plus Our Goals
 - [x] DONE: Board index plus 10 bios from `build/data/board.json` (Rodney Boucher shows crest placeholder and "coming soon" until photo and bio arrive)
 - [x] DONE: Regional index plus 10 rep pages from `build/data/regional.json` (one factual line plus "full biography coming soon" until SAG sends bios; Edward Perry shows crest placeholder)
-- [ ] News index plus 6 articles
+- [x] DONE: News index plus 6 articles from `build/data/news.json` (PDF buttons show "PDF coming soon" and video shows a placeholder until SAG supplies the files and YouTube URL)
 - [ ] Donate (Zeffy)
 - [ ] Contact (FormSubmit: honeypot, `_autoresponse`, absolute `_next`)
 - [ ] `thank-you.html` (noindex, sitemap excluded, robots Disallow)

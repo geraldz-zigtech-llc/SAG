@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% macro doc_list(keys) %}
+<ul class="doc-list">
+  {% for k in keys %}{% set d = docs[k] %}
+  <li class="doc">
+    {% if d.file %}<a class="doc-btn" href="{{ root }}{{ d.file }}" download><span class="doc-label">{{ d.label }}</span><span class="doc-action">Download PDF</span></a>
+    {% else %}<span class="doc-btn doc-pending"><span class="doc-label">{{ d.label }}</span><span class="doc-action">PDF coming soon</span></span>{% endif %}
+    <p class="doc-desc">{{ d.desc }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+{% block main %}
+{% include "_dolphins_banner.html" %}
+<article class="section article watermark" aria-labelledby="page-title">
+  <div class="section-inner narrow">
+    <p class="breadcrumb"><a href="index.html">News and Articles</a></p>
+    <h1 id="page-title" class="article-title">{{ a.title }}</h1>
+    {% if a.sidebar %}
+    <div class="article-lead-grid">
+      <img class="article-img" src="{{ root }}{{ a.image }}" alt="{{ a.alt }}" width="{{ a.w }}" height="{{ a.h }}">
+      <aside class="article-aside" aria-labelledby="aside-title">
+        <h2 id="aside-title">{{ a.sidebar.title }}</h2>
+        <p>{{ a.sidebar.text }}</p>
+      </aside>
+    </div>
+    {% elif a.image %}<img class="article-img" src="{{ root }}{{ a.image }}" alt="{{ a.alt }}" width="{{ a.w }}" height="{{ a.h }}">
+    {% endif %}
+
+    {% if a.video %}
+    <h2>Watch the Presentation</h2>
+    {% if video_url %}
+    <div class="video-wrap"><iframe src="{{ video_url }}" title="The Unseen Burden presentation" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    {% else %}
+    <div class="video-pending"><img src="{{ root }}assets/img/brand/sag-crest.png" alt="" width="90" height="103"><p>The presentation video will be posted here soon.</p></div>
+    {% endif %}
+    {% endif %}
+
+    {% for g in a.doc_groups or [] %}<h2>{{ g.heading }}</h2>{{ doc_list(g.docs) }}{% endfor %}
+
+    {% for b in a.blocks %}
+    {% if b.type == 'p' %}<p>{{ b.text }}</p>
+    {% elif b.type == 'h2' %}<h2>{{ b.text }}</h2>
+    {% elif b.type == 'ul' %}<ul class="focus-list">{% for i in b['items'] %}<li>{{ i }}</li>{% endfor %}</ul>
+    {% elif b.type == 'dl' %}<dl class="chem-list">{% for i in b['items'] %}<div><dt>{{ i.term }}</dt><dd>{{ i.text }}</dd></div>{% endfor %}</dl>
+    {% elif b.type == 'docs' %}{{ doc_list(b.docs) }}
+    {% endif %}
+    {% endfor %}
+
+    {% if a.contact %}
+    <aside class="contact-box" aria-labelledby="more-info">
+      <h2 id="more-info">For More Information</h2>
+      <p><strong>{{ contact.name }}</strong>, {{ contact.title }}</p>
+      <ul>
+        <li>Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+        <li>Phone: <a href="tel:{{ contact.tel }}">{{ contact.phone }}</a></li>
+        <li>Website: {{ contact.website }}</li>
+      </ul>
+    </aside>
+    {% endif %}
+    <p class="cta-row"><a class="btn btn-solid" href="index.html">All News and Articles</a></p>
+  </div>
+</article>
+{% endblock %}
