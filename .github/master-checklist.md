@@ -10,7 +10,7 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [ ] Forwarding set up for 4submariners.org, subwives.org, subadvocates.org (registrar URL forwarding; web records only)
 - SAG website lead: Scott Muranko (per David, 2026-10-31)
 - [ ] Current host and DNS provider identified; DNS access granted
-- [ ] GitHub repo owner decided (SAG org vs geraldz-zigtech-llc then transfer)
+- [x] DONE: Repo handed to Bobby King (BLKing Consulting) for launch and maintenance, 2026-10-31; launch steps in `LAUNCH.md`
 - [ ] Unified visual theme approved (deck style vs News style)
 
 ## Client dependencies
@@ -54,6 +54,7 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [x] DONE: Watermark contrast verified by axe-core color-contrast rule on every page type
 
 ## Handoff
+- [x] DONE: `LAUNCH.md` handoff for BLKing (cutover steps, old-repo domain conflict, forwarding domains, MX warning, content still owed)
 - [x] DONE: `README.md` (structure, build process, common edits, do-not-touch list, launch steps)
 - [x] DONE: `ai-editing-guide.md` (AI rules, task cookbook with exact file and key names, repeated-facts map, stop list)
 - [x] DONE: `.nojekyll` added so GitHub Pages serves files as is

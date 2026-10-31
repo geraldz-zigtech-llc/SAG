@@ -4,7 +4,7 @@ Static website for the Submariners' Advocacy Group (SAG), built by ZigTech LLC a
 
 | Item | Value |
 |---|---|
-| Repository | `geraldz-zigtech-llc/SAG` (transfers to SAG at handoff) |
+| Repository | `SAG`, transferred from `geraldz-zigtech-llc` to BLKing Consulting for launch and maintenance |
 | Test URL | https://geraldz-zigtech-llc.github.io/SAG/ |
 | Production domain | `www.submarinersadvocacygroup.org` (confirmed by David Bozarth, 2026-10-31). `4submariners.org`, `subwives.org`, and `subadvocates.org` forward to it; `subadvocates.org` is also SAG's email domain |
 | SAG website lead | Scott Muranko |
@@ -55,7 +55,7 @@ Never hand-edit a generated `.html` file; the next build overwrites it.
 | Add a news article | Add an entry to `articles` in `build/data/news.json`, copying an existing one | Run build, commit |
 | Turn on the Zeffy donation form | Set `zeffy_url` in `build/data/donate.json` | Run build, commit |
 
-## Do not change without ZigTech
+## Do not change without BLKing Consulting
 
 - `CNAME` file, DNS records, and the GitHub Pages custom domain setting
 - Contact form configuration in `build/build.py` and `build/templates/contact.html` (FormSubmit recipient, `_next`, `_autoresponse`, honeypot)
@@ -64,7 +64,9 @@ Never hand-edit a generated `.html` file; the next build overwrites it.
 - JSON-LD schema blocks in `build/build.py`
 - Google Analytics Measurement ID in `build/templates/base.html`
 
-## Launch steps (ZigTech)
+## Launch steps
+
+See `LAUNCH.md` for the full launch handoff. Summary:
 
 1. Canonical domain is set in `SITE["url"]` in `build/build.py`.
 2. Set `SITE["preview"] = False` to remove the noindex tag, and set the Contact form recipient.
@@ -75,4 +77,4 @@ Never hand-edit a generated `.html` file; the next build overwrites it.
 
 ## Contact
 
-ZigTech LLC, Gerald Ziegler, geraldz@zigtech-llc.com
+Maintained by BLKing Consulting (Bobby King). Originally built by ZigTech LLC (Gerald Ziegler, geraldz@zigtech-llc.com).

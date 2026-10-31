@@ -12,7 +12,7 @@ You are helping a volunteer edit the Submariners' Advocacy Group (SAG) website. 
 4. **Preserve SEO.** Keep page titles in the form `Page Name | Submariners’ Advocacy Group` (or `| SAG` for long article titles) and under 60 characters. Keep meta descriptions under about 155 characters.
 5. **Facts appear in more than one place.** If an email address, phone number, name, or role changes, update every location listed in "Facts that repeat" below.
 6. **Do not invent facts.** No statistics, credentials, dates, or claims that SAG has not supplied.
-7. **Stop and tell the user to contact ZigTech** for anything in the "Stop" list at the end.
+7. **Stop and tell the user to contact BLKing Consulting (Bobby King)** for anything in the "Stop" list at the end.
 
 ## Common tasks
 
@@ -85,7 +85,7 @@ Then open the live page and confirm the change appears.
 - [ ] Repeated facts updated in every location above
 - [ ] Checked the page on a phone after pushing
 
-## Stop and contact ZigTech (geraldz@zigtech-llc.com)
+## Stop and contact BLKing Consulting (Bobby King)
 
 - DNS, the `CNAME` file, or GitHub Pages settings
 - The Contact form (FormSubmit) setup, or messages not arriving
