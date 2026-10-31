@@ -13,11 +13,11 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 env = Environment(loader=FileSystemLoader(ROOT / "build" / "templates"),
                   autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
 
-# Canonical domain is a working assumption until SAG confirms (site plan, open item 1).
+# Canonical domain confirmed by David Bozarth 2026-10-31: www.submarinersadvocacygroup.org.
 SITE = {
     "name": "Submariners’ Advocacy Group",
-    "url": "https://subadvocates.org",
-    "email": "public-affairs@subadvocates.org",
+    "url": "https://www.submarinersadvocacygroup.org",
+    "email": "public-affairs@submarinersadvocacygroup.org",
     "preview": True,  # adds noindex while the site lives on the github.io test URL; set False at launch
     "preview_url": "https://geraldz-zigtech-llc.github.io/SAG",
     "year": datetime.date.today().year,
@@ -265,7 +265,7 @@ def main():
         "description": "Contact the Submariners’ Advocacy Group with questions, stories, or ways you would like to help.",
         "path": "/contact.html", "nav": "contact", "body_class": "page-contact",
         "schema": [breadcrumb(("Contact", "/contact.html"))],
-    }, form={"recipient": "contact1@submarinersadvocacygroup.org", "next_url": live_base + "/thank-you.html"})
+    }, form={"recipient": "public-affairs@submarinersadvocacygroup.org", "next_url": live_base + "/thank-you.html"})
 
     render("simple.html", "thank-you.html", {
         "title": "Thank You | Submariners’ Advocacy Group",

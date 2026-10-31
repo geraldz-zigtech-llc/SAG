@@ -6,7 +6,9 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [x] DONE: Layout deck (32 slides) and News mockup (9 pages) reviewed; site plan in `docs/site-plan.md`
 - [x] DONE: Images extracted to `assets/img/`; page copy extracted to `content/`
 - [x] DONE: Brand colors pixel sampled (`#241AEE`, `#DEDCFC`, `#292929`, `#7F7F7F`) and contrast measured
-- [ ] Canonical domain confirmed (subadvocates.org vs submarinersadvocacygroup.org)
+- [x] DONE: Canonical domain confirmed by David Bozarth 2026-10-31: www.submarinersadvocacygroup.org; 4submariners.org, subwives.org, subadvocates.org forward to it (browsing only; subadvocates.org is the email domain, MX must not change)
+- [ ] Forwarding set up for 4submariners.org, subwives.org, subadvocates.org (registrar URL forwarding; web records only)
+- SAG website lead: Scott Muranko (per David, 2026-10-31)
 - [ ] Current host and DNS provider identified; DNS access granted
 - [ ] GitHub repo owner decided (SAG org vs geraldz-zigtech-llc then transfer)
 - [ ] Unified visual theme approved (deck style vs News style)
@@ -20,7 +22,7 @@ Source of truth for the SAG build. Mark items DONE with the final value used.
 - [ ] Amendment 2 PDF (not in old site)
 - [x] DONE: YouTube presentation BM78yH0XD14 embedded (from old site)
 - [x] DONE: Zeffy form 42178bfd embedded on Donate (from old site)
-- [x] DONE: Contact form recipient contact1@submarinersadvocacygroup.org (from old site `_config.yml`); FormSubmit activation pending
+- [x] DONE: Contact form recipient public-affairs@submarinersadvocacygroup.org (per David, 2026-10-31); FormSubmit activation pending
 - [ ] Online Store URL or platform
 - [ ] Nonprofit status and EIN (only if SAG wants it published)
 - [ ] Social profiles and listings for `sameAs`

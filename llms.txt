@@ -13,16 +13,16 @@
 - Publishes The Unseen Burden: Toxic Exposures and Health Impacts on U.S. Navy Submariners, with Amendment 1 (Physiological Effects) and Amendment 2 (Compounded Stressors)
 
 ## Key pages
-- [About SAG](https://subadvocates.org/about.html)
-- [Mission](https://subadvocates.org/mission.html)
-- [Board of Directors](https://subadvocates.org/board/)
-- [Regional Representatives](https://subadvocates.org/regional/)
-- [News and Articles](https://subadvocates.org/news/)
-- [The Unseen Burden report](https://subadvocates.org/news/the-unseen-burden.html)
-- [Submarine Toxic, Hazardous, and Radiation Exposures](https://subadvocates.org/news/submarine-toxic-hazardous-radiation-exposures.html)
-- [Donate](https://subadvocates.org/donate.html)
-- [Contact](https://subadvocates.org/contact.html)
+- [About SAG](https://www.submarinersadvocacygroup.org/about.html)
+- [Mission](https://www.submarinersadvocacygroup.org/mission.html)
+- [Board of Directors](https://www.submarinersadvocacygroup.org/board/)
+- [Regional Representatives](https://www.submarinersadvocacygroup.org/regional/)
+- [News and Articles](https://www.submarinersadvocacygroup.org/news/)
+- [The Unseen Burden report](https://www.submarinersadvocacygroup.org/news/the-unseen-burden.html)
+- [Submarine Toxic, Hazardous, and Radiation Exposures](https://www.submarinersadvocacygroup.org/news/submarine-toxic-hazardous-radiation-exposures.html)
+- [Donate](https://www.submarinersadvocacygroup.org/donate.html)
+- [Contact](https://www.submarinersadvocacygroup.org/contact.html)
 
 ## Contact
-- Email: public-affairs@subadvocates.org
+- Email: public-affairs@submarinersadvocacygroup.org
 - Executive Director: David L. Bozarth

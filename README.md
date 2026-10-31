@@ -6,7 +6,8 @@ Static website for the Submariners' Advocacy Group (SAG), built by ZigTech LLC a
 |---|---|
 | Repository | `geraldz-zigtech-llc/SAG` (transfers to SAG at handoff) |
 | Test URL | https://geraldz-zigtech-llc.github.io/SAG/ |
-| Production domain | `subadvocates.org` (working assumption until SAG confirms) |
+| Production domain | `www.submarinersadvocacygroup.org` (confirmed by David Bozarth, 2026-10-31). `4submariners.org`, `subwives.org`, and `subadvocates.org` forward to it; `subadvocates.org` is also SAG's email domain |
+| SAG website lead | Scott Muranko |
 | Hosting | GitHub Pages, branch `main`, folder `/` (root) |
 | Built by | ZigTech LLC, geraldz@zigtech-llc.com |
 
@@ -65,7 +66,7 @@ Never hand-edit a generated `.html` file; the next build overwrites it.
 
 ## Launch steps (ZigTech)
 
-1. Confirm the canonical domain and update `SITE["url"]` and `SITE["email"]` in `build/build.py`.
+1. Canonical domain is set in `SITE["url"]` in `build/build.py`.
 2. Set `SITE["preview"] = False` to remove the noindex tag, and set the Contact form recipient.
 3. Run the build, add a `CNAME` file containing the domain, commit, and push.
 4. Update DNS (four GitHub Pages A records, optional AAAA records, `www` CNAME), set the custom domain in Pages settings, and enable Enforce HTTPS.

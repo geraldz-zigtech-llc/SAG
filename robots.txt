@@ -38,4 +38,4 @@ User-agent: Amazonbot
 Allow: /
 Disallow: /thank-you.html
 
-Sitemap: https://subadvocates.org/sitemap.xml
+Sitemap: https://www.submarinersadvocacygroup.org/sitemap.xml
