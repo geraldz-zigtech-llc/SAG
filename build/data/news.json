@@ -331,27 +331,27 @@
   "press": {
    "label": "Press Release",
    "desc": "Read the official announcement of The Unseen Burden report release.",
-   "file": null
+   "file": "assets/docs/unseen-burden-press-release.pdf"
   },
   "abstract": {
    "label": "Abstract",
    "desc": "Quick overview of the report’s key findings and recommmendations.",
-   "file": null
+   "file": "assets/docs/unseen-burden-abstract.pdf"
   },
   "full": {
    "label": "Full Report",
    "desc": "The complete 59-page comprehensive research report (The Unseen Burden).",
-   "file": null
+   "file": "assets/docs/unseen-burden-full-report.pdf"
   },
   "a1": {
    "label": "Amendment 1",
    "desc": "Comprehensive analysis of physiological impacts from toxic exposures on submariners.",
-   "file": null
+   "file": "assets/docs/unseen-burden-amendment-1.pdf"
   },
   "a1rel": {
    "label": "Amendment 1",
    "desc": "The Unseen Burden - Amendment 1: Physiological Effects.",
-   "file": null
+   "file": "assets/docs/unseen-burden-amendment-1.pdf"
   },
   "a2": {
    "label": "Amendment 2",
@@ -367,5 +367,5 @@
   "tel": "+18436970543",
   "website": "www.subadvocates.org"
  },
- "video_url": null
+ "video_url": "https://www.youtube-nocookie.com/embed/BM78yH0XD14"
 }

@@ -265,7 +265,7 @@ def main():
         "description": "Contact the Submariners’ Advocacy Group with questions, stories, or ways you would like to help.",
         "path": "/contact.html", "nav": "contact", "body_class": "page-contact",
         "schema": [breadcrumb(("Contact", "/contact.html"))],
-    }, form={"recipient": None, "next_url": live_base + "/thank-you.html"})
+    }, form={"recipient": "contact1@submarinersadvocacygroup.org", "next_url": live_base + "/thank-you.html"})
 
     render("simple.html", "thank-you.html", {
         "title": "Thank You | Submariners’ Advocacy Group",

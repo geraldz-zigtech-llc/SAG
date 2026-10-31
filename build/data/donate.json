@@ -1,12 +1,18 @@
 {
- "zeffy_url": null,
+ "zeffy_url": "https://www.zeffy.com/embed/donation-form/42178bfd-6ec4-407b-afb2-2a4527857c8a",
  "intro_heading": "Support Our Submariners",
  "intro": "Why do we ask for donations? Well, quite frankly, it’s a bit expensive to meet with key members of important organzations to introduce them to the needs of Submariners.",
  "transparency_heading": "Transparancy",
  "transparency_intro": "What exactly are we spending your donations on?",
  "transparency": [
-  {"label": "Travel:", "text": "Providing resources and assistance to families, ensuring they have the support they need while their loved ones are away."},
-  {"label": "Business Operations:", "text": "Funding educational programs and training to enhance the skills and career opportunities of submariners."}
+  {
+   "label": "Travel:",
+   "text": "Providing resources and assistance to families, ensuring they have the support they need while their loved ones are away."
+  },
+  {
+   "label": "Business Operations:",
+   "text": "Funding educational programs and training to enhance the skills and career opportunities of submariners."
+  }
  ],
  "stories_heading": "Real Stories, Real Impact",
  "stories": "Do you have a story of how the Submariners’ Advocacy Group has helped you or someone you know?",
@@ -15,13 +21,36 @@
  "how": "We have partnered with Zeffy to make donating easy and secure. Use the form below to donate to the Submariners’ Advocacy Group.",
  "help_heading": "Other Ways to Help",
  "help": [
-  {"label": "Volunteer:", "text": "Join our team and help us support submariners and their families.", "sub": [
-    {"label": "Researchers:", "text": "Help us gather information and data to support our mission."},
-    {"label": "Report Writers:", "text": "Help us create reports and white papers to share with key members of Congress and other organizations."},
-    {"label": "Technology Expertise:", "text": "Website development, social media management, web application development, and more…"},
-    {"label": "Public Relations:", "text": "Help us spread the word about our mission and the needs of submariners."}]},
-  {"label": "Advocacy:", "text": "Help us meet with key members of Congress and other organizations to advocate for submariners."},
-  {"label": "Spread the Word:", "text": "Share our mission with your friends and family to increase awareness and support."}
+  {
+   "label": "Volunteer:",
+   "text": "Join our team and help us support submariners and their families.",
+   "sub": [
+    {
+     "label": "Researchers:",
+     "text": "Help us gather information and data to support our mission."
+    },
+    {
+     "label": "Report Writers:",
+     "text": "Help us create reports and white papers to share with key members of Congress and other organizations."
+    },
+    {
+     "label": "Technology Expertise:",
+     "text": "Website development, social media management, web application development, and more…"
+    },
+    {
+     "label": "Public Relations:",
+     "text": "Help us spread the word about our mission and the needs of submariners."
+    }
+   ]
+  },
+  {
+   "label": "Advocacy:",
+   "text": "Help us meet with key members of Congress and other organizations to advocate for submariners."
+  },
+  {
+   "label": "Spread the Word:",
+   "text": "Share our mission with your friends and family to increase awareness and support."
+  }
  ],
  "thanks": "Thank you for your support!"
 }
